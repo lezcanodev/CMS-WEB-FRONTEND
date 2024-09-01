@@ -1,5 +1,5 @@
 import { Box, Divider, Drawer, ListItem, ListItemButton, ListItemText, Stack, Typography } from '@mui/material';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 
 import SecurityIcon from '@mui/icons-material/Security';
 import GroupIcon from '@mui/icons-material/Group';
@@ -8,6 +8,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import LanguageIcon from '@mui/icons-material/Language';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import SellIcon from '@mui/icons-material/Sell';
+import { getRouteByName } from '@/router/helpers';
 
 export default function DashboardLayout(){
     return <>
@@ -31,11 +32,16 @@ const menu = [
 ]
 
 function MenuLateral(){
+    const navigate = useNavigate();
+
+    const gotToWebsite = () => {
+        navigate(getRouteByName('inicio'));
+    }
     return <>
         <Drawer open={false} variant='permanent'>
             <Stack height={'100vh'} justifyContent={'space-between'}>
                 <Box>
-                    <Stack style={{cursor:'pointer'}}  direction={'row'} alignItems={'center'} justifyContent={'center'} gap={1}>
+                    <Stack style={{cursor:'pointer'}} onClick={gotToWebsite}   direction={'row'} alignItems={'center'} justifyContent={'center'} gap={1}>
                         <Box>
                             <Typography fontSize={'.8em'} fontWeight={'bold'} paddingTop={.2} color='primary'>
                                 ver sitio web

@@ -1,15 +1,18 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
-import DashboardLayout from '../layouts/dasboard.Layout';
-import Home from '../pages/dashboard/Home';
+import DashboardLayout from '@/layouts/dasboard.Layout';
 
 // Paginas
-import { RegisterPage } from '../pages/seguridad/register.page';
-import { LoginPage } from '../pages/seguridad/login.page';
-import { InicioPage } from '../pages/sitioweb/Inicio/Inicio';
+import Home from '@/pages/dashboard/Home';
+import { LoginPage } from '@/pages/Login.page';
+import { InicioPage } from '../pages/Inicio.page';
 import { MainLayout } from '../layouts/MainLayout';
+
+// Routes
 import { BASE_URL } from './helpers';
+import { ProtectedRoute } from './middlewares/ProtectedRoute';
+import { RegisterPage } from '@/pages/Register.page';
 
-
+// Rutas publicas accesibles sin necesidad de autenticación
 const PublicRoutes: RouteObject[] = [
   {
     path: BASE_URL,
@@ -21,11 +24,11 @@ const PublicRoutes: RouteObject[] = [
       },
       {
         path: "seguridad",
-        element: <MainLayout/>,
+        element: <ProtectedRoute inverse={true}><MainLayout/></ProtectedRoute>,
         children: [
           {
             path: "ingresar",
-            element: <LoginPage />
+            element:  <LoginPage /> 
           },
           {
             path: "registrarse",
@@ -37,6 +40,7 @@ const PublicRoutes: RouteObject[] = [
   }
 ];
 
+// Rutas que require estar autenticado
 const PrivateRoutes: RouteObject[] = [
   {
     path: BASE_URL+'dashboard',
@@ -49,6 +53,7 @@ const PrivateRoutes: RouteObject[] = [
     ]
   }
 ]
+
 
 export const router = createBrowserRouter([
     ...PublicRoutes,

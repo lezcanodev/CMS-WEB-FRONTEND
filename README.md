@@ -1,50 +1,68 @@
-# React + TypeScript + Vite
+# Frontend CMS WEB - Grupo 06
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-End del proyecto Sistema de Administración de Contenido Web (CMS Web).
 
-Currently, two official plugins are available:
+#  Tecnologías a utilizar
+- <b>React-router</b> sera el encargado del enrutamiento de paginas. (https://reactrouter.com/en/main)
+<br/><br/>
+- <b>Redux/toolkit</b> para manejar estados de componente y diferentes lógicas tanto síncronas como asíncronas. (https://redux-toolkit.js.org)
+<br/><br/>
+- <b>Axios</b> para manejar peticiones http, lo cual será útil para la comunicación con la API. (https://axios-http.com/docs/intro)
+<br/><br/>
+- <b>Formik</b> para manejar el estado y control de errores en los formularios. (https://formik.org)
+<br/><br/>
+- <b>Yup</b>  para generar los esquemas de validación de datos para cada formulario y trabajara en conjunto con <b>formik</b>. (https://www.npmjs.com/package/yup)
+<br/><br/>
+- <b>Material-ui</b> nos proporciona un conjunto de componentes ya diseñados para utilizar en las diferentes plantillas. (https://mui.com)
+<br/><br/>
+- <b>Typedoc</b> para generar la documentación un HTML que tendrá la documentación del proyecto. (https://typedoc.org/guides/overview/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Estructura de carpetas
+```text
++---api
+|   +---core
+|   \---seguridad
+|       +---Ingresar
+|       +---refrescar
+|       \---register
++---assets
++---components
++---contexts
+|   \---templateContext
++---layouts
++---pages
+|   \---dashboard
++---redux
++---router
+|   \---middlewares
++---services
+\---templates
+    +---interfaces
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+# Instalación
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Sigue los siguientes pasos para instalar el proyecto:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1.  **Clonar el repositorio:**
+     ```bash
+     git clone <URL_DEL_REPOSITORIO>
+    ```
+1.  **Instalar todas las dependencias:**
+        dentro de la carpeta del proyecto ejecutar
+    ```bash
+    npm install
+    ```
+ 1.  **Correr el servidor de desarrollo:**
+        dentro de la carpeta del proyecto ejecutar
+     ```bash
+     npm run dev
+     ```
+
+# Otros comandos
+- Para generar la documentación ejecutar:
+esto crea una nueva carpeta llamada <b>docs</b> en la base del proyecto, dentro estara un index.html el cual se tendra que abrir en el navegador.
+     ```bash
+     npm run generate-doc
+     ```

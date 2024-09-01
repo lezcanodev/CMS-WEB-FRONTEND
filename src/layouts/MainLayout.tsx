@@ -1,9 +1,15 @@
-import { Box } from '@mui/material';
+import { useTemplate } from '@/contexts/templateContext/useTemplate';
+import { Suspense } from 'react';
 import { Outlet } from 'react-router';
 
-
 export function MainLayout(){
-    return <Box style={{background: '#F5F7F9', height:'100vh', width: '100vw', overflow: 'auto'}} >
-      <Outlet />
-    </Box>
+  const { elements } = useTemplate();
+  const LoadingComponent = elements['LoadingPageComponent'];
+  const MainLayoutElement = elements['MainLayout'];
+
+  return <MainLayoutElement>
+    <Suspense fallback={<LoadingComponent />}>
+        <Outlet />
+    </Suspense>
+  </MainLayoutElement>
 }

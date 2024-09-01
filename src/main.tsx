@@ -5,16 +5,11 @@ import '@fontsource/roboto/700.css';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './assets/reset.css';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './router/website.routes.tsx';
-import { Provider } from 'react-redux';
-import store from './redux/index.ts';
+import App from './App.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
+      <App />
   </StrictMode>,
 )
