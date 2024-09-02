@@ -3,6 +3,7 @@
 Front-End del proyecto Sistema de Administración de Contenido Web (CMS Web).
 
 #  Tecnologías a utilizar
+- <b>React Testing Library y Jest</b> se usaran para realizar testing sobre los componentes del GUI y sobre los metodos, clases, etc.
 - <b>React-router</b> sera el encargado del enrutamiento de paginas. (https://reactrouter.com/en/main)
 <br/><br/>
 - <b>Redux/toolkit</b> para manejar estados de componente y diferentes lógicas tanto síncronas como asíncronas. (https://redux-toolkit.js.org)
