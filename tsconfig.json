@@ -6,7 +6,11 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "target": "ES6",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "references": [
     { "path": "./tsconfig.app.json" },
